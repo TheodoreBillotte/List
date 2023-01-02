@@ -24,4 +24,5 @@ void list_insert(list_t * list, void * data, int index)
     new->next = node;
     node->prev->next = new;
     node->prev = new;
+    list->size++;
 }
