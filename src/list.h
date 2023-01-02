@@ -49,4 +49,8 @@ void list_remove(list_t * list, int index, bool free_data);
 int list_index(list_t * list, void * data);
 int list_index_node(list_t * list, node_t * node);
 
+void list_swap_datas(node_t * node1, node_t * node2);
+void list_swap_nodes(list_t * list, node_t * node1, node_t * node2);
+void list_swap(list_t * list, int index1, int index2);
+
 #endif
