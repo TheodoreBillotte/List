@@ -46,4 +46,7 @@ void list_remove_node(list_t * list, node_t * node, bool free_data);
 void list_remove_data(list_t * list, void * data, bool free_data);
 void list_remove(list_t * list, int index, bool free_data);
 
+int list_index(list_t * list, void * data);
+int list_index_node(list_t * list, node_t * node);
+
 #endif
