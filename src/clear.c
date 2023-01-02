@@ -8,17 +8,9 @@
 #include <stddef.h>
 #include "list.h"
 
-void list_clear(list_t * list)
+void list_clear(list_t * list, bool free_data)
 {
-    list_free_nodes(list);
-    list->head = NULL;
-    list->tail = NULL;
-    list->size = 0;
-}
-
-void list_clear_free(list_t * list)
-{
-    list_free_nodes_data(list);
+    list_free_nodes(list, free_data);
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;

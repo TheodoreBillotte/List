@@ -8,6 +8,8 @@
 #ifndef LIST
     #define LIST
 
+#include <stdbool.h>
+
 typedef struct node_s {
     void * data;
     struct node_s * next;
@@ -26,13 +28,10 @@ node_t * create_node(void * data);
 void list_append(list_t * list, void * data);
 void list_append_list(list_t * list, list_t * to_append);
 
-void list_free(list_t * list);
-void list_free_data(list_t * list);
-void list_free_nodes(list_t * list);
-void list_free_nodes_data(list_t * list);
+void list_free(list_t * list, bool free_data);
+void list_free_nodes(list_t * list, bool free_data);
 
-void list_clear(list_t * list);
-void list_clear_free(list_t * list);
+void list_clear(list_t * list, bool free_data);
 
 list_t * list_copy(list_t * list);
 
@@ -42,5 +41,9 @@ int list_count_func(list_t * list, int (*equals)(void *));
 
 void * list_get(list_t * list, int index);
 node_t * list_get_node(list_t * list, int index);
+
+void list_remove_node(list_t * list, node_t * node, bool free_data);
+void list_remove_data(list_t * list, void * data, bool free_data);
+void list_remove(list_t * list, int index, bool free_data);
 
 #endif

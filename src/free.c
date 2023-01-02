@@ -9,7 +9,7 @@
 
 #include "list.h"
 
-void list_free(list_t * list)
+void list_free(list_t * list, bool free_data)
 {
     node_t * node = list->head;
     node_t * tmp = NULL;
@@ -17,12 +17,13 @@ void list_free(list_t * list)
     while (node) {
         tmp = node;
         node = node->next;
-        free(tmp);
+        if (free_data)
+            free(tmp->data);
     }
     free(list);
 }
 
-void list_free_data(list_t * list)
+void list_free_nodes(list_t * list, bool free_data)
 {
     node_t * node = list->head;
     node_t * tmp = NULL;
@@ -30,33 +31,8 @@ void list_free_data(list_t * list)
     while (node) {
         tmp = node;
         node = node->next;
-        free(tmp->data);
-        free(tmp);
-    }
-    free(list);
-}
-
-void list_free_nodes(list_t * list)
-{
-    node_t * node = list->head;
-    node_t * tmp = NULL;
-
-    while (node) {
-        tmp = node;
-        node = node->next;
-        free(tmp);
-    }
-}
-
-void list_free_nodes_data(list_t * list)
-{
-    node_t * node = list->head;
-    node_t * tmp = NULL;
-
-    while (node) {
-        tmp = node;
-        node = node->next;
-        free(tmp->data);
+        if (free_data)
+            free(tmp->data);
         free(tmp);
     }
 }
