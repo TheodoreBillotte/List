@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/coding-style-reports.log
+/CMakeLists.txt
