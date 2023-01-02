@@ -53,4 +53,6 @@ void list_swap_datas(node_t * node1, node_t * node2);
 void list_swap_nodes(list_t * list, node_t * node1, node_t * node2);
 void list_swap(list_t * list, int index1, int index2);
 
+void list_insert(list_t * list, void * data, int index);
+
 #endif
