@@ -8,7 +8,7 @@
 #ifndef LIST
     #define LIST
 
-#include <stdbool.h>
+    #include <stdbool.h>
 
 typedef struct node_s {
     void * data;
